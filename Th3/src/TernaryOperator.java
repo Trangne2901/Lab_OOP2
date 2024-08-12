@@ -1,24 +1,20 @@
 public class TernaryOperator {
     public static void main(String[] args) {
-        String str ="HuyenTrang";
-        String result = (str == null) ? "" : str.substring(0, 5);
-//        String result;
 
         try {
-            // Nếu str không phải là null, lấy chuỗi con; nếu null, gán giá trị mặc định
-            if (str == null) {
-                result = "Null";
-            } else {
-                result = str.substring(0,5);
-            }
+            String str = "HuyenTrang";
+            String message = (str == null) ? "" : str.substring(0, 5);
+            System.out.println(message);
+
         } catch (IndexOutOfBoundsException e) {
-            // Xử lý trường hợp chuỗi ngắn hơn 5 ký tự
-            result = "Default";
+            // Xử lý trường hợp chuỗi ngắn hoac dai hon so ký tự
+            System.out.println("Loi: " + e.getMessage());
         } catch (Exception e) {
             // Xử lý các ngoại lệ khác (nếu cần)
-            result = "Default";
+            System.out.println("Loi: "+ e.getMessage());
         }
 
-        System.out.println("Result " + result);
+
     }
+
 }
