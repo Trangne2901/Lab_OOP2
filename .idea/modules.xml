@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Lab.iml" filepath="$PROJECT_DIR$/.idea/Lab.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Th1/Th1.iml" filepath="$PROJECT_DIR$/Th1/Th1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Th2/Th2.iml" filepath="$PROJECT_DIR$/Th2/Th2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Th3/Th3.iml" filepath="$PROJECT_DIR$/Th3/Th3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Th3/Lab4_TH3.iml" filepath="$PROJECT_DIR$/Th3/Lab4_TH3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Th1/Lab4_Th1.iml" filepath="$PROJECT_DIR$/Th1/Lab4_Th1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Th2/Lab4_Th2.iml" filepath="$PROJECT_DIR$/Th2/Lab4_Th2.iml" />
     </modules>
   </component>
 </project>
