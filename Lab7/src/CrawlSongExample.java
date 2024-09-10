@@ -24,7 +24,7 @@ public class CrawlSongExample {
             // regex: tìm kiếm các tên bài hát
             Pattern p = Pattern.compile("name_song\">(.*?)</a>");
 
-            //Pattern.compile("name_song\">(.*?)</a>"): Đây là biểu thức chính quy dùng để tìm kiếm tên bài hát.
+            //Pattern.com6pile("name_song\">(.*?)</a>"): Đây là biểu thức chính quy dùng để tìm kiếm tên bài hát.
 //name_song">: Tìm chuỗi bắt đầu bằng name_song">.
 //(.*?): Tìm bất kỳ ký tự nào nằm giữa cặp name_song"> và </a>.
 // Dấu *? cho phép tìm các ký tự bất kỳ với số lượng nhỏ nhất có thể.

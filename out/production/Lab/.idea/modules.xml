@@ -3,9 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Lab.iml" filepath="$PROJECT_DIR$/.idea/Lab.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Th1/Th1.iml" filepath="$PROJECT_DIR$/Th1/Th1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Th2/Th2.iml" filepath="$PROJECT_DIR$/Th2/Th2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Th3/Th3.iml" filepath="$PROJECT_DIR$/Th3/Th3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab2/Lab2.iml" filepath="$PROJECT_DIR$/Lab2/Lab2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Th3/Lab4_TH3.iml" filepath="$PROJECT_DIR$/Th3/Lab4_TH3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Th1/Lab4_Th1.iml" filepath="$PROJECT_DIR$/Th1/Lab4_Th1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Th2/Lab4_Th2.iml" filepath="$PROJECT_DIR$/Th2/Lab4_Th2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab7/Lab7.iml" filepath="$PROJECT_DIR$/Lab7/Lab7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TH1_bai5/TH1_bai5.iml" filepath="$PROJECT_DIR$/TH1_bai5/TH1_bai5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai6/TH3_Bai6/TH3_Bai6.iml" filepath="$PROJECT_DIR$/Bai6/TH3_Bai6/TH3_Bai6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bai6/TH_Bai6.iml" filepath="$PROJECT_DIR$/Bai6/TH_Bai6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baitap5/baitap5(Lab5).iml" filepath="$PROJECT_DIR$/baitap5/baitap5(Lab5).iml" />
     </modules>
   </component>
 </project>

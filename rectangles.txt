@@ -1,0 +1,3 @@
+Tên hình học: Rectangle, màu sắc: Red, Chieu dai: 5.0, Chieu rong: 4.0
+Tên hình học: Rectangle, màu sắc: Blue, Chieu dai: 7.0, Chieu rong: 6.0
+Tên hình học: Rectangle, màu sắc: Green, Chieu dai: 9.0, Chieu rong: 8.0

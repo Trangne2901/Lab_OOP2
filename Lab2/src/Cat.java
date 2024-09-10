@@ -18,5 +18,4 @@ public class Cat extends Animal {
         cat.makeSound("Meo meo");
 //        Cat makeSound Meo Meo
     }
-        
 }
