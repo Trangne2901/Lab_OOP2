@@ -1,0 +1,3 @@
+ID: D101, Ten: HuyenTrang, Ngay sinh: 29/01/2005, Diem trung binh: 8.1
+ID: D102, Ten: VanDan, Ngay sinh: 19/10/2005, Diem trung binh: 8.5
+ID: D103, Ten: QuocHuy, Ngay sinh: 11/05/2005, Diem trung binh: 8.3
