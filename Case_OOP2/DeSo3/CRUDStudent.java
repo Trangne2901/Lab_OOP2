@@ -1,9 +1,6 @@
 package Case_OOP2.DeSo3;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class CRUDStudent {
     //+ Mảng đối tượng Student: Lưu danh sách sinh viên
@@ -28,8 +25,8 @@ public class CRUDStudent {
 
     //+ Phương thức lưu một sinh viên vào file
     public boolean addStudentToFile(Student objStudent, String filename) {
-        try (FileWriter fileWriter = new FileWriter(filename, true)) {
-            fileWriter.write(objStudent.toString() + "\n");
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(filename))) {
+            objectOutputStream.writeObject(objStudent);
             return true;
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -39,27 +36,19 @@ public class CRUDStudent {
 
     //+ Phương thức trả về đối tượng sinh viên của file
     public Student getStudentFromFile(String filename) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
-            String line = bufferedReader.readLine();
-            if (line != null) {
-                String[] data = line.split(",");
-                String markAvgString = data[3].split(": ")[1];
-                return new Student(data[0].split(": ")[1], data[1].split(": ")[1], data[2].split(": ")[1], Double.parseDouble(markAvgString));
-            }
-        } catch (IOException e) {
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(filename))) {
+          Student objStudent = (Student) objectInputStream.readObject();
+          return  objStudent;
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
         return null;
     }
 
     //+ Phương thức lưu danh sách sinh viên vào file
-    public boolean addStudentListToFile(Student[] listStudent, String filename) {
-        try (FileWriter fileWriter = new FileWriter(filename)) {
-            for (Student student : listStudent) {
-                if (student != null) {
-                    fileWriter.write(student.toString()+"\n");
-                }
-            }
+    public boolean addStudentListToFile(Student[] listStudent, String filename) throws FileNotFoundException {
+        try ( ObjectOutputStream objectOutputStreamList = new ObjectOutputStream(new FileOutputStream(filename))) {
+        objectOutputStreamList.writeObject(listStudent);
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,19 +58,13 @@ public class CRUDStudent {
 
     //+ Phương thức trả về danh sách sinh viên trong file
     public Student[] getAllStudentFromFile(String filename) {
-        Student[] students = new Student[100];
-        int count = 0;
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
-            String line = bufferedReader.readLine();
-            while (line != null) {
-                String[] data = line.split(",");
-                String markAvgString = data[3].split(": ")[1];
-                students[count++] = new Student(data[0].split(": ")[1], data[1].split(": ")[1], data[2].split(": ")[1], Double.parseDouble(markAvgString));
-                line = bufferedReader.readLine();
-            }
-
+        try(ObjectInputStream objectInputStreamList = new ObjectInputStream(new FileInputStream(filename))) {
+            Student [] objStudents = (Student[]) objectInputStreamList.readObject();
+            return objStudents;
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
         return students;
     }

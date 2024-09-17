@@ -1,6 +1,8 @@
 package Case_OOP2.b1;
 
-public abstract class Shape {
+import java.io.Serializable;
+
+public abstract class Shape implements Serializable {
     private String shapeName;
     private String color;
 

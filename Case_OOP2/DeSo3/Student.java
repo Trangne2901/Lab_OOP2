@@ -1,6 +1,8 @@
 package Case_OOP2.DeSo3;
 
-public class Student extends Person{
+import java.io.Serializable;
+
+public class Student extends Person implements Serializable {
     private double markAGV;
 
     public Student(String personID, String personName, String dateOfBrithday, double markAGV){

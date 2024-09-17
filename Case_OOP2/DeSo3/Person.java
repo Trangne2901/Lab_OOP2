@@ -1,6 +1,8 @@
 package Case_OOP2.DeSo3;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
     private String personID;
     private String personName;
     private String dateOfBrithday;

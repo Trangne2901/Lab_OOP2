@@ -28,81 +28,40 @@ public class CRUDRectangle {
     }
 
     //Phương thức lưu một hình chữ nhật vào file
-    public boolean addRectangleToFile(Rectangle objRectangle, String filename) {
-        try (FileWriter fileWriter = new FileWriter(filename, true);
-             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+    public boolean addRectangleToFile(Rectangle objRectangle, String fileName) throws FileNotFoundException {
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            objectOutputStream.writeObject(objRectangle);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return true;
+    }
 
-            bufferedWriter.write(objRectangle.toString());
-            bufferedWriter.newLine();
+
+    public Rectangle getRectangle(String fileName) throws IOException {
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(fileName))) {
+            return (Rectangle) objectInputStream.readObject();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean addRectangleListToFile(String fileName, Rectangle[] listRectangle) throws FileNotFoundException {
+        try (ObjectOutputStream objectOutputStreamList = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            objectOutputStreamList.writeObject(listRectangle);
             return true;
         } catch (IOException e) {
-            System.out.println(e.getMessage());
-            return false;
-
+            throw new RuntimeException(e);
         }
     }
 
-    // Phương thức trả về đối tượng hình chữ nhật từ file
-    public Rectangle getRectangleFromFile(String filename) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                // Giả sử mỗi dòng chứa thông tin hình chữ nhật dưới dạng: Shape: Rectangle, Color: Red, Width: 10.0, Height: 5.0
-                String[] parts = line.split(", ");
-                String shapeName = parts[0].split(": ")[1];
-                String color = parts[1].split(": ")[1];
-                double width = Double.parseDouble(parts[2].split(": ")[1]);
-                double height = Double.parseDouble(parts[3].split(": ")[1]);
 
-                return new Rectangle(shapeName, color, height, width);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public Rectangle[] getRectangleList(String fileName) throws FileNotFoundException {
+        try(ObjectInputStream objectInputStreamList = new ObjectInputStream(new FileInputStream(fileName))) {
+            return (Rectangle[]) objectInputStreamList.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-        return null; // Nếu không tìm thấy hoặc xảy ra lỗi
-    }
-
-
-    //Phương thức lưu danh sách hình chữ nhật vào file
-    public boolean addRectangleListToFile(Rectangle[] listRectangle, String filename) {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename))) {
-            for (Rectangle rect : listRectangle) {
-                if (rect != null) {
-                    bufferedWriter.write(rect.toString());
-                    bufferedWriter.newLine();
-                }
-            }
-            return true;
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-    //Phương thức trả về danh sách hình chữ nhật trong file
-    public Rectangle[] getAllRectangleFromFile(String filename) {
-        ArrayList<Rectangle> rectangleList = new ArrayList<>(); // Dùng ArrayList để lưu danh sách hình chữ nhật tạm thời
-
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                // Giả sử mỗi dòng chứa thông tin hình chữ nhật dưới dạng: Shape: Rectangle, Color: Red, Width: 10.0, Height: 5.0
-                String[] parts = line.split(", ");
-                String shapeName = parts[0].split(": ")[1];
-                String color = parts[1].split(": ")[1];
-                double width = Double.parseDouble(parts[2].split(": ")[1]);
-                double height = Double.parseDouble(parts[3].split(": ")[1]);
-
-                // Tạo đối tượng hình chữ nhật từ các thông tin đọc được và thêm vào danh sách
-                Rectangle rectangle = new Rectangle(shapeName, color, height, width);
-                rectangleList.add(rectangle);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // Chuyển ArrayList thành mảng Rectangle[]
-        return rectangleList.toArray(new Rectangle[0]);
     }
 
 }
